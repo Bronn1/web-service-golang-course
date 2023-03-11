@@ -64,6 +64,7 @@ func TestTreeDir(t *testing.T) {
 	out := new(bytes.Buffer)
 	dirTree(out, "testdata", false)
 	result := out.String()
+
 	if result != testDirResult {
 		t.Errorf("test for OK Failed - results not match\nGot:\n%v\nExpected:\n%v", result, testDirResult)
 	}
@@ -113,6 +114,7 @@ func TestData2Fulldir(t *testing.T) {
 	out := new(bytes.Buffer)
 	dirTree(out, "testdata2", true)
 	result := out.String()
+
 	if result != testdata2DirResult {
 		t.Errorf("test for OK Failed - results not match\nGot:\n%v\nExpected:\n%v", result, testdata2DirResult)
 	}
@@ -124,6 +126,7 @@ func TestTreeEmptyDir(t *testing.T) {
 	out := new(bytes.Buffer)
 	dirTree(out, "testdata2/empty_dir", true)
 	result := out.String()
+
 	if result != testEmptyDirResult {
 		t.Errorf("test for OK Failed - results not match\nGot:\n%v\nExpected:\n%v", result, testEmptyDirResult)
 	}
