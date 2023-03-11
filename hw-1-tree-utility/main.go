@@ -99,7 +99,7 @@ func printDirTree(out ByteWriter, tree []TreeNode, pathPrefix string) {
 func dirTree(treeResults ByteWriter, path string, isPrintFiles bool) {
 	defer func() {
 		if err := recover(); err != nil {
-			fmt.Fprint(treeResults, "Error occured: ", err)
+			fmt.Fprint(treeResults, "Error occured: ", err, "\n")
 		}
 	}()
 	tree := makeDirTree(path, isPrintFiles)
