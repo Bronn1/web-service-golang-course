@@ -168,7 +168,7 @@ func TestDirWithOneDir(t *testing.T) {
 const invalidDirResult = `Error occured: open invaliddir: no such file or directory
 `
 
-func TestPanicOnInvalidDir(t *testing.T) {
+func TestErrorOnInvalidDir(t *testing.T) {
 	out := new(bytes.Buffer)
 	dirTree(out, "invaliddir", false)
 	result := out.String()
@@ -181,7 +181,7 @@ func TestPanicOnInvalidDir(t *testing.T) {
 const notDirErrorResult = `Error occured: readdirent testdata/static/js/site.js: not a directory
 `
 
-func TestPanicOnFile(t *testing.T) {
+func TestErrorOnFile(t *testing.T) {
 	out := new(bytes.Buffer)
 	dirTree(out, "testdata/static/js/site.js", true)
 	result := out.String()
