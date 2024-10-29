@@ -20,7 +20,7 @@ type User struct {
 func FastSearch(out io.Writer) {
 	content, err := os.ReadFile(filePath)
 	if err != nil {
-		panic("cannot read file")
+		panic("cannot read file, err:" + err.Error())
 	}
 	foundUsers := ""
 	uniqueBrowsers := 0
