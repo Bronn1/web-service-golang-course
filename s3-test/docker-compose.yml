@@ -1,0 +1,30 @@
+services:
+  uploader:
+    image: golang:1.23
+    working_dir: /app
+    volumes:
+      - ./.:/app
+    ports:
+      - "8081:8081"
+    command: ["sh", "-c", "go mod tidy && go run ./uploader/main.go --config /app/config/config.json"]
+    depends_on:
+      - storage_server_1
+      - storage_server_2
+
+  storage_server_1:
+    image: golang:1.23
+    working_dir: /app
+    volumes:
+      - ./.:/app
+    ports:
+      - "1456:1456"
+    command: ["go", "run", "./object-storage/main.go", "--port", "1456"]
+  
+  storage_server_2:
+    image: golang:1.23
+    working_dir: /app
+    volumes:
+      - ./.:/app
+    ports:
+      - "1457:1457"
+    command: ["go", "run", "./object-storage/main.go", "--port", "1457"]
