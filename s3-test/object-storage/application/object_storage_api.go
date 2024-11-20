@@ -1,9 +1,5 @@
 package app
 
-// import (
-// 	storagepb "github.com/Bronn1/web-service-golang-course/s3-test/proto"
-// )
-
 import (
 	"io"
 	"os"

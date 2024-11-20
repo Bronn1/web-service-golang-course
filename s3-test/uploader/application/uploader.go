@@ -1,8 +1,6 @@
 package application
 
 import (
-	//	storage "github.com/Bronn1/s3-test/object-storage/domain"
-
 	"context"
 	"encoding/json"
 	"fmt"
